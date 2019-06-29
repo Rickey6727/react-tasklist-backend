@@ -73,6 +73,7 @@ app.post("/categorys/category", function(req, res) {
     console.log(results);
     if (error) throw error;
     res.send(results);
+    connection.end();
   });
 });
 
