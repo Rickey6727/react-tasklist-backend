@@ -1,6 +1,6 @@
 const express = require('express');
 const connect = require('connect');
-const app = connect();
+const app = require('express')();
 const bodyParser = require('body-parser');
 const mysql = require("mysql");
 const connection = mysql.createConnection({
