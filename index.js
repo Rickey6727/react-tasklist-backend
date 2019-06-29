@@ -31,14 +31,14 @@ var allowCrossDomain = function(req, res, next) {
   }
 };
 
-var connection;
+var LostConnection;
 
 function handleDisconnect() {
     console.log('INFO.CONNECTION_DB: ');
-    connection = mysql.createConnection(db_config);
+    LostConnection = mysql.createConnection(db_config);
     
     //connection取得
-    connection.connect(function(err) {
+    LostConnection.connect(function(err) {
         if (err) {
             console.log('ERROR.CONNECTION_DB: ', err);
             setTimeout(handleDisconnect, 1000);
@@ -46,7 +46,7 @@ function handleDisconnect() {
     });
     
     //error('PROTOCOL_CONNECTION_LOST')時に再接続
-    connection.on('error', function(err) {
+    LostConnection.on('error', function(err) {
         console.log('ERROR.DB: ', err);
         if (err.code === 'PROTOCOL_CONNECTION_LOST') {
             console.log('ERROR.CONNECTION_LOST: ', err);
