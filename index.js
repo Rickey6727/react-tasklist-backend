@@ -1,6 +1,7 @@
 const express = require('express');
 const connect = require('connect');
 const app = require('express')();
+const cors = require('cors')();
 const bodyParser = require('body-parser');
 const mysql = require("mysql");
 const connection = mysql.createConnection({
@@ -17,19 +18,21 @@ app.use(bodyParser.urlencoded({
 
 app.use(bodyParser.json());
 
-var allowCrossDomain = function(req, res, next) {
-  res.header('Access-Control-Allow-Origin', '*');
-  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
-  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Content-Length, X-Requested-With');
+// var allowCrossDomain = function(req, res, next) {
+//   res.header('Access-Control-Allow-Origin', '*');
+//   res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
+//   res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Content-Length, X-Requested-With');
 
-  // intercept OPTIONS method
-  if ('OPTIONS' == req.method) {
-    res.send(200);
-  }
-  else {
-    next();
-  }
-};
+//   // intercept OPTIONS method
+//   if ('OPTIONS' == req.method) {
+//     res.send(200);
+//   }
+//   else {
+//     next();
+//   }
+// };
+
+app.use(cors());
 
 var LostConnection;
 
