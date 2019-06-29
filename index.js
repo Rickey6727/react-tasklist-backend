@@ -1,8 +1,6 @@
-const express = require("express");
 const connect = require('connect');
 const app = connect();
 const bodyParser = require('body-parser');
-const methodOverride = require('method-override');
 const mysql = require("mysql");
 const connection = mysql.createConnection({
   host: "us-cdbr-iron-east-02.cleardb.net",
@@ -17,6 +15,8 @@ app.use(bodyParser.urlencoded({
   extended: true
 }));
 
+app.use(bodyParser.json());
+
 var allowCrossDomain = function(req, res, next) {
   res.header('Access-Control-Allow-Origin', '*');
   res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
@@ -30,11 +30,6 @@ var allowCrossDomain = function(req, res, next) {
     next();
   }
 };
-app.use(allowCrossDomain);
-app.use(methodOverride());
-app.use(app.router);
-app.use(express.static(path.join(application_root, "public")));
-app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
 
 app.get("/", function(req, res) {
   res.send("go to /posts to see posts");
