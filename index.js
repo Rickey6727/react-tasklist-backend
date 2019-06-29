@@ -1,6 +1,6 @@
 const express = require("express");
-var connect = require('connect');
-var app = connect();
+const connect = require('connect');
+const app = connect();
 const bodyParser = require('body-parser');
 const mysql = require("mysql");
 const connection = mysql.createConnection({
@@ -15,9 +15,6 @@ const connection = mysql.createConnection({
 app.use(bodyParser.urlencoded({
   extended: true
 }));
-
-app.use(bodyParser());
-app.use(bodyParser.json());
 
 var allowCrossDomain = function(req, res, next) {
   res.header('Access-Control-Allow-Origin', '*');
