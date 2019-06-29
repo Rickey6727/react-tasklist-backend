@@ -187,10 +187,6 @@ app.post("/delete", function(req, res) {
 
 var port = process.env.PORT || 4000;
 
-app.listen(port, function() {
-  console.log("App is running on port " + port);
-});
-
 app.listen(port, () => {
   console.log("App is running on port " + port);
 });
