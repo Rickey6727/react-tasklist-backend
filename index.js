@@ -35,7 +35,7 @@ var LostConnection;
 
 function handleDisconnect() {
     console.log('INFO.CONNECTION_DB: ');
-    LostConnection = mysql.createConnection(db_config);
+    LostConnection = mysql.createConnection(connection);
     
     //connection取得
     LostConnection.connect(function(err) {
