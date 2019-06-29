@@ -7,7 +7,8 @@ const connection = mysql.createConnection({
   user: "b1a74395c03649",
   password: "398a7283",
   database: "heroku_af231fb6f51835a",
-  timezone: 'jst'
+  timezone: 'jst',
+  port: 3307
 });
 
 app.use(bodyParser.urlencoded({
