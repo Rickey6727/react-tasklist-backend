@@ -46,6 +46,7 @@ app.get("/posts", function(req, res) {
     console.log(results);
     if (error) throw error;
     res.send(results);
+    connection.end();
   });
 });
 
@@ -59,6 +60,7 @@ app.get("/categorys", function(req, res) {
     console.log(results);
     if (error) throw error;
     res.send(results);
+    connection.end();
   });
 });
 
