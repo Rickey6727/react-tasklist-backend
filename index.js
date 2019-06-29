@@ -4,9 +4,9 @@ const bodyParser = require('body-parser');
 const mysql = require("mysql");
 const connection = mysql.createConnection({
   host: "us-cdbr-iron-east-02.cleardb.net",
-  user: "b1a74395c03649",
-  password: "398a7283",
-  database: "heroku_af231fb6f51835a",
+  user: "b7c47176d7d1a4",
+  password: "559fe177",
+  database: "heroku_f8964801b69450f",
   timezone: 'jst',
   port: 3307
 });
