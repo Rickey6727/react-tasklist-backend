@@ -190,8 +190,18 @@ app.post("/delete", function(req, res) {
   });
 });
 
+var port = process.env.PORT || 4000;
 
-app.listen(process.env.PORT || 4000, function() {
-  console.log("Example app listening on port 4000!");
+server.listen(port, function() {
+  console.log("App is running on port " + port);
 });
+
+server.listen(port, () => {
+  console.log("App is running on port " + port);
+});
+
+
+// app.listen(process.env.PORT || 4000, function() {
+//   console.log("Example app listening on port 4000!");
+// });
 
