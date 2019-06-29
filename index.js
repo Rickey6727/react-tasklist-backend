@@ -2,6 +2,7 @@ const express = require("express");
 const connect = require('connect');
 const app = connect();
 const bodyParser = require('body-parser');
+const methodOverride = require('method-override');
 const mysql = require("mysql");
 const connection = mysql.createConnection({
   host: "us-cdbr-iron-east-02.cleardb.net",
@@ -30,7 +31,7 @@ var allowCrossDomain = function(req, res, next) {
   }
 };
 app.use(allowCrossDomain);
-app.use(express.methodOverride());
+app.use(methodOverride());
 app.use(app.router);
 app.use(express.static(path.join(application_root, "public")));
 app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
